@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { TypeAnimation } from "react-type-animation";
 import {useTranslation} from "../TranslationContext.tsx";
 import LanguageSelector from "../misc/LanguageSelector.tsx";
+import Typewriter from "react-ts-typewriter";
 
 function WelcomePage() {
-    const { t, language } = useTranslation();
+    const { t } = useTranslation();
     const [showContinue, setShowContinue] = useState(false);
 
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowContinue(true);
-        }, 10000);
+        }, 6000);
 
         return () => clearTimeout(timer);
     }, []);
@@ -21,11 +21,11 @@ function WelcomePage() {
 
     return (
         <>
-            <div className="fixed top-4 right-4 sm:top-6 sm:right-6 lg:top-8 lg:right-8 z-50">
+            {!showContinue && <div className="fixed top-4 right-4 sm:top-6 sm:right-6 lg:top-8 lg:right-8 z-50">
                 <button className="px-6 py-2 sm:px-8 sm:py-2 bg-white/30 rounded-2xl text-white font-semibold text-sm sm:text-base transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900">
                     Skip
                 </button>
-            </div>
+            </div>}
             <LanguageSelector />
             <div className="gradient-background relative min-h-screen w-full overflow-hidden bg-gray-900 flex flex-col items-center justify-center m-0 p-0">
                 {/* Floating Particles Effect */}
@@ -48,23 +48,15 @@ function WelcomePage() {
 
                 <div className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center">
                     <div className="mb-8">
-                        <TypeAnimation
-                            key={language}
-                            sequence={[
-                                t('welcome0'),
-                                500,
-                                t('welcome1'),
-                                500,
-                                t('welcome2'),
-                                300,
-                                t('welcome3')
-                            ]}
-                            wrapper="h1"
-                            speed={1}
-                            deletionSpeed={5}
-                            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-teal-400 leading-tight"
-                            repeat={0}
-                        />
+                        <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-teal-400 leading-tight">
+                           <Typewriter
+                               text={[t('welcome0'), t('welcome1'), showContinue ? t('welcome3') : t('welcome2')]}
+                               speed={50}
+                               delay={1000}
+                               loop={false}
+                           />
+                        </span>
+
                     </div>
 
                     <div className={`transition-all duration-1000 ${showContinue ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
