@@ -1,11 +1,12 @@
-import WelcomePage from "./screens/WelcomePage.tsx";
 import {TranslationProvider} from "./TranslationContext.tsx";
+import {RouterProvider} from "@tanstack/react-router";
+import {router} from "./router.tsx";
 
 function App() {
 
   return (
       <TranslationProvider>
-          <WelcomePage />
+          <RouterProvider router={router} />
       </TranslationProvider>
   );
 }
