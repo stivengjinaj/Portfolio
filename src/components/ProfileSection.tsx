@@ -64,8 +64,8 @@ const ProfileSection: React.FC = () => {
                     >
                         <div className="relative group mt-3">
                             <div className="absolute inset-0 bg-gradient-to-r from-violet-400 to-purple-600 rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
-                            <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 shadow-2xl hover:shadow-violet-500/20 transition-all duration-300 hover:transform hover:scale-105">
-                                <img className="object-cover w-80 h-80 rounded-2xl bg-gradient-to-br from-violet-400/20 to-purple-600/20 flex items-center justify-center text-white/60 text-lg font-medium" src={"/profile.jpg"} alt="profile image"/>
+                            <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 shadow-3xl hover:shadow-violet-500/20 transition-all duration-300 hover:transform hover:scale-105">
+                                <img className="object-cover w-100 h-80 rounded-2xl bg-gradient-to-br from-violet-400/20 to-purple-600/20 flex items-center justify-center text-white/60 text-lg font-medium" src={"/profile.jpg"} alt="profile image"/>
                             </div>
                         </div>
                     </div>
