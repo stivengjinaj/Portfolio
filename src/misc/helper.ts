@@ -25,12 +25,36 @@ export const getColorClasses = (programmingContext: ProgrammingContext) => {
             border: "border-green-400/30",
             text: "text-green-300",
             pill: "bg-green-500/20 border-green-400/30 text-green-300"
+        },
+        [ProgrammingContext.TOOLS]: {
+            bg: "from-amber-400/20 to-amber-600/20",
+            border: "border-amber-400/30",
+            text: "text-amber-300",
+            pill: "bg-amber-500/20 border-amber-400/30 text-amber-300"
+        },
+        [ProgrammingContext.PAYMENT_GATEWAYS]: {
+            bg: "from-yellow-400/20 to-yellow-600/20",
+            border: "border-yellow-400/30",
+            text: "text-yellow-300",
+            pill: "bg-yellow-500/20 border-yellow-400/30 text-yellow-300"
+        },
+        [ProgrammingContext.DATABASE]: {
+            bg: "from-teal-400/20 to-teal-600/20",
+            border: "border-teal-400/30",
+            text: "text-teal-300",
+            pill: "bg-teal-500/20 border-teal-400/30 text-teal-300"
+        },
+        [ProgrammingContext.DEPLOYMENT]: {
+            bg: "from-rose-400/20 to-rose-600/20",
+            border: "border-rose-400/30",
+            text: "text-rose-300",
+            pill: "bg-rose-500/20 border-rose-400/30 text-rose-300"
         }
     };
     return colorMap[programmingContext as keyof typeof colorMap];
 };
 
-export const languageTypeToString = (programmingContext: ProgrammingContext) => {
+export const contextToString = (programmingContext: ProgrammingContext) => {
     if (programmingContext === ProgrammingContext.SOC){
         return "Low Level"
     }else if (programmingContext === ProgrammingContext.AI){
@@ -39,5 +63,13 @@ export const languageTypeToString = (programmingContext: ProgrammingContext) => 
         return "Web"
     }else if (programmingContext === ProgrammingContext.MOBILE){
         return "Mobile"
+    }else if (programmingContext == ProgrammingContext.TOOLS) {
+        return "Tools"
+    }else if (programmingContext === ProgrammingContext.PAYMENT_GATEWAYS){
+        return "Payment Gateways"
+    }else if (programmingContext == ProgrammingContext.DATABASE) {
+        return "Database"
+    }else if (programmingContext === ProgrammingContext.DEPLOYMENT){
+        return "Deployment"
     }
 }

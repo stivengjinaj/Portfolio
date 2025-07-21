@@ -5,6 +5,17 @@ export enum Section {
     CONTACT
 }
 
+export enum ProgrammingContext {
+    MOBILE,
+    WEB,
+    AI,
+    SOC,
+    TOOLS,
+    DATABASE,
+    DEPLOYMENT,
+    PAYMENT_GATEWAYS,
+}
+
 export interface AcademicData {
     title: string;
     degree: string;
@@ -15,4 +26,14 @@ export interface AcademicData {
 
 export interface AcademicCardProps {
     data: AcademicData;
+}
+
+export interface TechnologyInfo {
+    name: string;
+    icon: string;
+}
+
+export interface ToolsAndTechnologies {
+    tool: TechnologyInfo[];
+    type: ProgrammingContext;
 }

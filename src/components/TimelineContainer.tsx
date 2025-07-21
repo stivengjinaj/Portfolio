@@ -2,10 +2,9 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AcademicCard from "./AcademicCard";
-import ProgrammingLanguages from "./ProgrammingLanguages.tsx";
-import {skillsData} from "../misc/personalData.ts";
 import {useTranslation} from "../TranslationContext.tsx";
-import FrameworksCard from "./Frameworks.tsx";
+import SkillsCard from "./SkillsCard.tsx";
+import {frameworks, programmingLanguages, technologies} from "../misc/personalData.ts";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -113,7 +112,7 @@ const TimelineContainer: React.FC = () => {
 
                     <div className="timeline-card grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                         <div className="lg:pr-12">
-                            <ProgrammingLanguages data={skillsData} />
+                            <SkillsCard title={"Programming Languages"} data={programmingLanguages} />
                         </div>
                         <div className="lg:pl-12">
                             <div className="w-8 h-8 bg-violet-500 rounded-full border-4 border-white/20 absolute left-1/2 transform -translate-x-1/2 shadow-lg shadow-violet-500/50 hidden lg:block"></div>
@@ -122,13 +121,21 @@ const TimelineContainer: React.FC = () => {
 
                     <div className="timeline-card grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                         <div className="lg:pr-12 lg:order-2">
-                            <FrameworksCard />
+                            <SkillsCard title={"Frameworks"} data={frameworks} />
                         </div>
                         <div className="lg:pl-12 lg:order-1">
                             <div className="w-8 h-8 bg-purple-500 rounded-full border-4 border-white/20 absolute left-1/2 transform -translate-x-1/2 shadow-lg shadow-purple-500/50 hidden lg:block"></div>
                         </div>
                     </div>
 
+                    <div className="timeline-card grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                        <div className="lg:pr-12">
+                            <SkillsCard title={"Tools and Technologies"} data={technologies} />
+                        </div>
+                        <div className="lg:pl-12">
+                            <div className="w-8 h-8 bg-violet-500 rounded-full border-4 border-white/20 absolute left-1/2 transform -translate-x-1/2 shadow-lg shadow-violet-500/50 hidden lg:block"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
