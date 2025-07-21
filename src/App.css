@@ -83,11 +83,45 @@
                     rgba(49, 46, 129, 0.3) 100%
             );
     background-size: 300% 300%, 200% 200%;
-    animation: GradientBackground 25s ease-in-out infinite;
+    animation: GradientBackground 18s ease-in-out infinite;
     z-index: 1;
 }
 
 .gradient-background > * {
+    position: relative;
+    z-index: 2;
+}
+
+.darker-gradient-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+            radial-gradient(ellipse at center,
+            rgba(9, 10, 101, 0.4) 0%,
+            rgba(23, 18, 80, 0.3) 25%,
+            rgba(13, 12, 48, 0.5) 50%,
+            rgba(138, 13, 230, 0.4) 75%,
+            rgba(111, 55, 205, 0.3) 100%
+            ),
+            linear-gradient(
+                    135deg,
+                    rgba(18, 19, 90, 0.2) 0%,
+                    rgba(23, 16, 112, 0.3) 20%,
+                    rgba(28, 21, 131, 0.4) 40%,
+                    rgba(144, 5, 251, 0.3) 60%,
+                    rgba(107, 62, 182, 0.2) 80%,
+                    rgba(120, 38, 220, 0.7) 100%
+            );
+    background-size: 300% 300%, 200% 200%;
+    animation: GradientBackground 18s ease-in-out infinite;
+    z-index: 1;
+}
+
+.darker-gradient-background > * {
     position: relative;
     z-index: 2;
 }
