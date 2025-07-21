@@ -3,7 +3,6 @@ import type {ToolsAndTechnologies} from "../misc/types.ts";
 
 
 const SkillsCard = ({title, data}: {title: string, data: ToolsAndTechnologies[]}) => {
-
     return (
         <div className="group relative">
             <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 to-violet-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

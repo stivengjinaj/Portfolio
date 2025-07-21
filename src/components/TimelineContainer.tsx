@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {useEffect, useRef} from "react";
+import {gsap} from "gsap";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
 import AcademicCard from "./AcademicCard";
 import {useTranslation} from "../TranslationContext.tsx";
 import SkillsCard from "./SkillsCard.tsx";
@@ -8,7 +8,7 @@ import {frameworks, programmingLanguages, technologies} from "../misc/personalDa
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TimelineContainer: React.FC = () => {
+const TimelineContainer = () => {
     const {t} = useTranslation();
     const timelineRef = useRef<HTMLDivElement>(null);
     const lineRef = useRef<HTMLDivElement>(null);
@@ -28,6 +28,7 @@ const TimelineContainer: React.FC = () => {
         universityLogo: "https://geowindy.polito.it/wp-content/uploads/2024/04/polito.png",
         year: "2024-Present",
     };
+
     useEffect(() => {
         const cards = timelineRef.current?.querySelectorAll('.timeline-card');
 
