@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import {useEffect, useRef, useState} from "react";
 import {useTranslation} from "../TranslationContext.tsx";
-import LanguageSelector from "../misc/LanguageSelector.tsx";
+import LanguageSelector from "../components/LanguageSelector.tsx";
 import Typewriter from "react-ts-typewriter";
+import gsap from "gsap";
 
 function WelcomePage() {
     const { t } = useTranslation();
     const [showContinue, setShowContinue] = useState(false);
+    const fadeout = useRef(null);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -16,13 +18,24 @@ function WelcomePage() {
     }, []);
 
     const handleContinue = () => {
-        console.log("Starting the journey...");
+        if (!fadeout.current) return;
+
+        gsap.to(fadeout.current, {
+            y: -50,
+            opacity: 0,
+            duration: 0.3,
+            ease: "power1.out"
+        }).then(() => window.location.href = "/home");
     };
+
 
     return (
         <>
             {!showContinue && <div className="fixed top-4 right-4 sm:top-6 sm:right-6 lg:top-8 lg:right-8 z-50">
-                <button className="px-6 py-2 sm:px-8 sm:py-2 bg-white/30 rounded-2xl text-white font-semibold text-sm sm:text-base transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900">
+                <button
+                    onClick={() => window.location.href = "/home"}
+                    className="px-6 py-2 sm:px-8 sm:py-2 bg-white/30 rounded-2xl text-white font-semibold text-sm sm:text-base transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                >
                     Skip
                 </button>
             </div>}
@@ -46,7 +59,7 @@ function WelcomePage() {
                     ))}
                 </div>
 
-                <div className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center">
+                <div className="relative z-10 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center" ref={fadeout}>
                     <div className="mb-8">
                         <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-teal-400 leading-tight">
                            <Typewriter
