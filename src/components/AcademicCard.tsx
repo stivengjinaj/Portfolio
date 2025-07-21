@@ -23,7 +23,7 @@ const AcademicCard: React.FC<AcademicCardProps> = ({ data }) => {
                             />
 
                             <div className="flex-1 flex justify-center">
-                                <p className="text-white/80 text-center">{data.university}</p>
+                                <p className="text-white/80 font-bold text-l text-center">{data.university}</p>
                             </div>
                         </div>
 
