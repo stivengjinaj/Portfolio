@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useTranslation } from '../TranslationContext';
+import { useTranslation } from '../TranslationContext.tsx';
 import {ChevronDown, ChevronUp} from "lucide-react";
 
 interface LanguageOption {
