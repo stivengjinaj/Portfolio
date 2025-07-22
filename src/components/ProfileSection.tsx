@@ -52,7 +52,7 @@ const ProfileSection: React.FC = () => {
     }, []);
 
     return (
-        <div className="h-screen flex flex-col">
+        <div className="h-screen flex flex-col" id={"me"}>
             <section
                 ref={profileRef}
                 className="flex-1 flex items-center justify-center px-4 py-20"

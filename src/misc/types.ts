@@ -1,6 +1,6 @@
 export enum Section {
-    HOME,
-    ABOUT,
+    ME,
+    JOURNEY,
     PROJECTS,
     CONTACT
 }

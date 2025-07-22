@@ -1,4 +1,5 @@
 import {ProgrammingContext, type Project, type ToolsAndTechnologies} from "./types.ts";
+import {Linkedin, Mail, Phone} from "lucide-react";
 
 
 export const programmingLanguages: ToolsAndTechnologies[] = [
@@ -312,4 +313,28 @@ export const projectsData: Project[] = [
         image: "/projects/Horus.png",
         githubRepo: "https://github.com/stivengjinaj/Horus"
     },
+];
+
+export const contacts = [
+    {
+        icon: Phone,
+        label: "Phone",
+        value: [
+            "+39 351 840 9127",
+            "+355 69 374 9509"
+        ],
+    },
+    {
+        icon: Mail,
+        label: "Email",
+        value: [
+            "stivengjinaj@hotmail.com",
+            "stivengjinaj2002@gmail.com"
+        ],
+    },
+    {
+        icon: Linkedin,
+        label: "LinkedIn",
+        value: ["https://www.linkedin.com/in/stiven-gjinaj-835134161/"],
+    }
 ];

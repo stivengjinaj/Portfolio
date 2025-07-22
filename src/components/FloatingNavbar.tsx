@@ -1,44 +1,54 @@
-import {useEffect, useRef, useState} from "react";
+import {useRef, useState} from "react";
 import { Section } from "../misc/types.ts";
 import {gsap} from "gsap";
+import {sectionToId} from "../misc/helper.ts";
 
-function FloatingNavbar({currentSection, setCurrentSection}: { currentSection: Section; setCurrentSection(section: Section): void; }) {
+function FloatingNavbar({currentSection, setCurrentSection}: {
+    currentSection: Section;
+    setCurrentSection(section: Section): void;
+}) {
     const [menuOpen, setMenuOpen] = useState(false);
-    const navbarRef = useRef<HTMLHeadingElement>(null);
-
-    useEffect(() => {
-        gsap.from(navbarRef.current, {
-            y: -100,
-            opacity: 0,
-            ease: "easeOut",
-        })
-    })
+    const navbarRef = useRef<HTMLElement>(null);
 
     const navItems = [
-        { label: "Home", section: Section.HOME },
-        { label: "About", section: Section.ABOUT },
+        { label: "Me", section: Section.ME },
+        { label: "Journey", section: Section.JOURNEY },
         { label: "Projects", section: Section.PROJECTS },
         { label: "Contact", section: Section.CONTACT },
     ];
 
+    const scrollToSection = (sectionId: string) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        }
+    };
+
     const handleClick = (section: Section) => {
         setCurrentSection(section);
         setMenuOpen(false);
+        scrollToSection(sectionToId(section));
     };
 
     return (
         <>
-            <nav ref={navbarRef} className="navbar-container fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-5xl rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-md px-6 py-3 flex items-center justify-between text-white">
+            <nav
+                ref={navbarRef}
+                className="navbar-container fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-5xl rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-md px-6 py-3 flex items-center justify-between text-white"
+            >
                 <div className="text-lg font-semibold tracking-wide">Stiven Gjinaj</div>
 
                 <ul className="hidden md:flex gap-6 text-sm font-medium">
                     {navItems.map(({ label, section }) => (
                         <li
                             key={section}
-                            className={`cursor-pointer transition ${
+                            className={`cursor-pointer transition duration-300 ${
                                 currentSection === section
-                                    ? "text-violet-400 shadow-sm"
-                                    : "hover:text-white/50 text-violet-200"
+                                    ? "text-violet-400 shadow-sm scale-105"
+                                    : "hover:text-white/80 text-violet-200 hover:scale-105"
                             }`}
                             onClick={() => handleClick(section)}
                         >
@@ -61,7 +71,7 @@ function FloatingNavbar({currentSection, setCurrentSection}: { currentSection: S
                         <button
                             key={section}
                             onClick={() => handleClick(section)}
-                            className={`py-2 rounded-lg transition ${
+                            className={`py-2 rounded-lg transition duration-300 ${
                                 currentSection === section
                                     ? "bg-violet-600 text-white"
                                     : "hover:bg-white/10 text-violet-200"

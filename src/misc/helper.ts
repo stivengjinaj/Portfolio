@@ -74,28 +74,13 @@ export const contextToString = (programmingContext: ProgrammingContext) => {
     }
 }
 
-export function getNextSection(currentSection: Section): Section {
-    const sectionValues = Object.values(Section).filter(value => typeof value === 'number') as Section[];
-
-    const currentIndex = sectionValues.indexOf(currentSection);
-
-    if (currentIndex === sectionValues.length - 1) {
-        return currentSection;
+export const sectionToId = (section: Section): string => {
+    switch (section) {
+        case Section.ME: return "me"
+        case Section.JOURNEY: return "journey"
+        case Section.PROJECTS: return "projects"
+        case Section.CONTACT: return "contact"
     }
-
-    return sectionValues[currentIndex + 1];
-}
-
-export function getPreviousSection(currentSection: Section): Section {
-    const sectionValues = Object.values(Section).filter(value => typeof value === 'number') as Section[];
-
-    const currentIndex = sectionValues.indexOf(currentSection);
-
-    if (currentIndex === 0) {
-        return currentSection;
-    }
-
-    return sectionValues[currentIndex - 1];
 }
 
 export const handleGithubRedirect = (url: string) => {

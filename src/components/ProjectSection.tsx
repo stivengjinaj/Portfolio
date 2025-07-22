@@ -77,8 +77,8 @@ const ProjectsSection: React.FC = () => {
     }, []);
 
     return (
-        <section ref={sectionRef} className="relative py-20 px-4">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent backdrop-blur-sm"></div>
+        <section ref={sectionRef} className="relative py-20 px-4" id={"projects"}>
+            <div className="absolute inset-0 bg-gradient-to-b via-white/20 to-transparent backdrop-blur-sm"></div>
 
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="text-center mb-20">
