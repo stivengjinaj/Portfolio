@@ -85,6 +85,16 @@ export const sectionToId = (section: Section): string => {
     }
 }
 
+export const labelToTab = (label: string): string => {
+    switch (label) {
+        case "Me": return "aboutTab"
+        case "Journey": return "journey"
+        case "Projects": return "projectsTab"
+        case "Contacts": return "contactsTab"
+        default: return "aboutTab"
+    }
+}
+
 export const handleGithubRedirect = (url: string) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     window.open(url, "_blank") || window.location.replace(url);

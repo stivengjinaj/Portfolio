@@ -1,11 +1,13 @@
 import {useRef, useState} from "react";
 import { Section } from "../misc/types.ts";
-import {sectionToId} from "../misc/helper.ts";
+import {labelToTab, sectionToId} from "../misc/helper.ts";
+import {useTranslation} from "../TranslationContext.tsx";
 
 function FloatingNavbar({currentSection, setCurrentSection}: {
     currentSection: Section;
     setCurrentSection(section: Section): void;
 }) {
+    const {t} = useTranslation();
     const [menuOpen, setMenuOpen] = useState(false);
     const navbarRef = useRef<HTMLElement>(null);
 
@@ -13,7 +15,7 @@ function FloatingNavbar({currentSection, setCurrentSection}: {
         { label: "Me", section: Section.ME },
         { label: "Journey", section: Section.JOURNEY },
         { label: "Projects", section: Section.PROJECTS },
-        { label: "Contact", section: Section.CONTACT },
+        { label: "Contacts", section: Section.CONTACT },
     ];
 
     const scrollToSection = (sectionId: string) => {
@@ -51,7 +53,9 @@ function FloatingNavbar({currentSection, setCurrentSection}: {
                             }`}
                             onClick={() => handleClick(section)}
                         >
-                            {label}
+                            {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+                            {/* @ts-expect-error*/}
+                            {t(labelToTab(label))}
                         </li>
                     ))}
                 </ul>
@@ -76,7 +80,9 @@ function FloatingNavbar({currentSection, setCurrentSection}: {
                                     : "hover:bg-white/10 text-violet-200"
                             }`}
                         >
-                            {label}
+                            {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+                            {/* @ts-expect-error*/}
+                            {t(labelToTab(label))}
                         </button>
                     ))}
                 </div>
