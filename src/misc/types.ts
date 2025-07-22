@@ -40,7 +40,10 @@ export interface ToolsAndTechnologies {
 
 export interface Project {
     projectTitle: string;
-    projectDescription: string;
+    projectDescription_en: string;
+    projectDescription_sq: string;
+    projectDescription_it: string;
+    projectDescription_es: string
     usedTechnologies: TechnologyInfo[];
     image?: string;
     video?: string;

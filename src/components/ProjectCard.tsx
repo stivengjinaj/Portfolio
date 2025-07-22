@@ -1,6 +1,7 @@
 import React, {useRef} from "react";
 import type {Project} from "../misc/types.ts";
 import {handleGithubRedirect} from "../misc/helper.ts";
+import {useTranslation} from "../TranslationContext.tsx";
 
 interface ProjectCardProps {
     data: Project;
@@ -8,6 +9,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
+    const {t, language} = useTranslation();
 
     return (
         <div className="group relative h-full">
@@ -44,7 +46,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
                     <div className="flex items-start justify-between mb-4">
                         <div className="flex-1">
                             <h4 className="text-xl font-bold text-white mb-2">{data.projectTitle}</h4>
-                            <p className="text-white/80 text-sm leading-relaxed">{data.projectDescription}</p>
+                            <p className="text-white/80 text-sm leading-relaxed">
+                                {language === "en"
+                                    ? data.projectDescription_en
+                                    : language === "al"
+                                        ? data.projectDescription_sq
+                                        : language === "it"
+                                            ? data.projectDescription_it
+                                            : data.projectDescription_es
+                                }
+                            </p>
                         </div>
                     </div>
 
@@ -67,7 +78,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
                             onClick={() => handleGithubRedirect(data.githubRepo)}
                             className="flex-1 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 text-sm"
                         >
-                            View Code
+                            {t('viewCode')}
                         </button>
                     </div>
                 </div>

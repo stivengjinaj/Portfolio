@@ -113,7 +113,7 @@ const TimelineContainer = () => {
 
                     <div className="timeline-card grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                         <div className="lg:pr-12">
-                            <SkillsCard title={"Programming Languages"} data={programmingLanguages} />
+                            <SkillsCard title={t('programmingLanguagesTitle')} data={programmingLanguages} />
                         </div>
                         <div className="lg:pl-12">
                             <div className="w-8 h-8 bg-violet-500 rounded-full border-4 border-white/20 absolute left-1/2 transform -translate-x-1/2 shadow-lg shadow-violet-500/50 hidden lg:block"></div>
@@ -122,7 +122,7 @@ const TimelineContainer = () => {
 
                     <div className="timeline-card grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                         <div className="lg:pr-12 lg:order-2">
-                            <SkillsCard title={"Frameworks"} data={frameworks} />
+                            <SkillsCard title={t('frameworksTitle')} data={frameworks} />
                         </div>
                         <div className="lg:pl-12 lg:order-1">
                             <div className="w-8 h-8 bg-purple-500 rounded-full border-4 border-white/20 absolute left-1/2 transform -translate-x-1/2 shadow-lg shadow-purple-500/50 hidden lg:block"></div>
@@ -131,7 +131,7 @@ const TimelineContainer = () => {
 
                     <div className="timeline-card grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                         <div className="lg:pr-12">
-                            <SkillsCard title={"Tools and Technologies"} data={technologies} />
+                            <SkillsCard title={t('toolsTitle')} data={technologies} />
                         </div>
                         <div className="lg:pl-12">
                             <div className="w-8 h-8 bg-violet-500 rounded-full border-4 border-white/20 absolute left-1/2 transform -translate-x-1/2 shadow-lg shadow-violet-500/50 hidden lg:block"></div>

@@ -78,9 +78,9 @@ const ProfileSection: React.FC = () => {
                             <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">
                                 {t('whatIDo')}
                             </h1>
-                            <h2 className="text-2xl font-semibold mb-6 text-violet-200">
+                            {/*<h2 className="text-2xl font-semibold mb-6 text-violet-200">
                                 {t('jobPosition')}
-                            </h2>
+                            </h2>*/}
                             <p className="text-lg text-white/80 leading-relaxed mb-6">
                                 {t('briefDescription')}
                             </p>

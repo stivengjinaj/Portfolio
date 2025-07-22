@@ -2,11 +2,13 @@ import React, {useEffect, useRef} from 'react';
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {contacts} from "../misc/personalData.ts";
+import {useTranslation} from "../TranslationContext.tsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ContactSection: React.FC = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
+    const {language, t} = useTranslation();
 
     useEffect(() => {
         if (sectionRef.current) {
@@ -34,10 +36,10 @@ const ContactSection: React.FC = () => {
             <div className="max-w-4xl w-full">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                        Get In <span className="text-violet-400">Touch</span>
+                        {t('getIn')} <span className="text-violet-400">{t('touch')}</span>
                     </h2>
                     <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                        Contact me and let's discuss how we can work together to bring ideas to life.
+                        {t('contactMe')}
                     </p>
                 </div>
 
@@ -58,7 +60,14 @@ const ContactSection: React.FC = () => {
                                     </div>
 
                                     <h3 className="text-xl font-semibold text-white mb-3">
-                                        {contact.label}
+                                        {language === "en"
+                                            ? contact.label_en
+                                            : language === "al"
+                                                ? contact.label_sq
+                                                : language === "it"
+                                                    ? contact.label_it
+                                                    : contact.label_es
+                                        }
                                     </h3>
 
                                     <p className="text-white/80 mb-6 break-all">

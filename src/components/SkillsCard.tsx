@@ -1,8 +1,11 @@
 import {contextToString, getColorClasses} from "../misc/helper.ts";
 import type {ToolsAndTechnologies} from "../misc/types.ts";
+import {useTranslation} from "../TranslationContext.tsx";
 
 
 const SkillsCard = ({title, data}: {title: string, data: ToolsAndTechnologies[]}) => {
+    const { t } = useTranslation();
+
     return (
         <div className="group relative">
             <div className="absolute inset-0 bg-gradient-to-r from-purple-400/20 to-violet-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -23,7 +26,7 @@ const SkillsCard = ({title, data}: {title: string, data: ToolsAndTechnologies[]}
                                 className={`bg-gradient-to-br ${colors.bg} rounded-xl p-4 border ${colors.border} hover:scale-105 transition-transform duration-200`}
                             >
                                 <div className="flex items-center mb-3">
-                                    <h5 className={`font-semibold ${colors.text}`}>{contextToString(element.type)}</h5>
+                                    <h5 className={`font-semibold ${colors.text}`}>{t(contextToString(element.type))}</h5>
                                 </div>
                                 <div className="flex flex-wrap gap-2">
                                     {element.tool.map((tool, index) => (

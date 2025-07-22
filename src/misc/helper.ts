@@ -56,21 +56,21 @@ export const getColorClasses = (programmingContext: ProgrammingContext) => {
 
 export const contextToString = (programmingContext: ProgrammingContext) => {
     if (programmingContext === ProgrammingContext.SOC){
-        return "Low Level"
+        return "lowLevel"
     }else if (programmingContext === ProgrammingContext.AI){
-        return "AI and Data Analytics"
+        return "aiTitle"
     }else if (programmingContext === ProgrammingContext.WEB){
-        return "Web"
+        return "web"
     }else if (programmingContext === ProgrammingContext.MOBILE){
-        return "Mobile"
+        return "mobile"
     }else if (programmingContext == ProgrammingContext.TOOLS) {
-        return "Tools"
+        return "tools"
     }else if (programmingContext === ProgrammingContext.PAYMENT_GATEWAYS){
-        return "Payment Gateways"
+        return "payment"
     }else if (programmingContext == ProgrammingContext.DATABASE) {
-        return "Database"
+        return "databases"
     }else if (programmingContext === ProgrammingContext.DEPLOYMENT){
-        return "Deployment"
+        return "deploy"
     }
 }
 
