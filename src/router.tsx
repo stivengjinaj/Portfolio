@@ -24,16 +24,9 @@ const aboutMePageRoute = createRoute({
     component: Homepage
 })
 
-const contactMePageRoute = createRoute({
-    getParentRoute: () => rootRoute,
-    path: '/contactMe',
-    component: () => {}
-})
-
 const routeTree = rootRoute.addChildren([
     welcomePageRoute,
     aboutMePageRoute,
-    contactMePageRoute,
 ]);
 
 export const router = createRouter({ routeTree });
