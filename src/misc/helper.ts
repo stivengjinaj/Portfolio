@@ -1,4 +1,4 @@
-import {ProgrammingContext} from "./types.ts";
+import {ProgrammingContext, Section} from "./types.ts";
 
 export const getColorClasses = (programmingContext: ProgrammingContext) => {
     const colorMap = {
@@ -72,4 +72,33 @@ export const contextToString = (programmingContext: ProgrammingContext) => {
     }else if (programmingContext === ProgrammingContext.DEPLOYMENT){
         return "Deployment"
     }
+}
+
+export function getNextSection(currentSection: Section): Section {
+    const sectionValues = Object.values(Section).filter(value => typeof value === 'number') as Section[];
+
+    const currentIndex = sectionValues.indexOf(currentSection);
+
+    if (currentIndex === sectionValues.length - 1) {
+        return currentSection;
+    }
+
+    return sectionValues[currentIndex + 1];
+}
+
+export function getPreviousSection(currentSection: Section): Section {
+    const sectionValues = Object.values(Section).filter(value => typeof value === 'number') as Section[];
+
+    const currentIndex = sectionValues.indexOf(currentSection);
+
+    if (currentIndex === 0) {
+        return currentSection;
+    }
+
+    return sectionValues[currentIndex - 1];
+}
+
+export const handleGithubRedirect = (url: string) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    window.open(url, "_blank") || window.location.replace(url);
 }

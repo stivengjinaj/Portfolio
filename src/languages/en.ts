@@ -20,7 +20,7 @@ const en = {
     bachelorDegreeTitle: "Computer Science and Engineering",
     masterDegreeDescription: "Computer Science and Engineering - AI and Data Analytics",
     technicalSkillTitle: "Technical Skills",
-    programmingSkillTitle: "Programming Skills",
+    programmingLanguagesTitle: "Programming Languages",
     toolsTitle: "Tools",
     frameworksTitle: "Frameworks",
     designerTitle: "Design",

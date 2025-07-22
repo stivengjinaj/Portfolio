@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ProjectCard from "./ProjectCard";
 import {projectsData} from "../misc/personalData.ts";
 import {useTranslation} from "../TranslationContext.tsx";
+import {handleGithubRedirect} from "../misc/helper.ts";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,8 +21,8 @@ const ProjectsSection: React.FC = () => {
             ease: "power2.out",
             scrollTrigger: {
                 trigger: sectionRef.current,
-                start: "top 90%",
-                end: "top 60%",
+                start: "top 120%",
+                end: "top 80%",
                 toggleActions: "play none none reverse"
             }
         })
@@ -38,8 +39,8 @@ const ProjectsSection: React.FC = () => {
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: titleRef.current,
-                    start: "top 90%",
-                    end: "top 60%",
+                    start: "top 120%",
+                    end: "top 80%",
                     toggleActions: "play none none reverse"
                 }
             }
@@ -62,8 +63,8 @@ const ProjectsSection: React.FC = () => {
                     delay: index * 0.2,
                     scrollTrigger: {
                         trigger: card,
-                        start: "top 95%",
-                        end: "top 20%",
+                        start: "top 110%",
+                        end: "top 40%",
                         toggleActions: "play none none reverse"
                     }
                 }
@@ -102,7 +103,10 @@ const ProjectsSection: React.FC = () => {
                     <div className="inline-block group relative">
                         <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-purple-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-                        <button className="relative bg-white/10 backdrop-blur-md border border-white/20 hover:border-white/40 text-white font-semibold py-4 px-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-violet-500/25">
+                        <button
+                            onClick={() => handleGithubRedirect("https://github.com/stivengjinaj")}
+                            className="relative bg-white/10 backdrop-blur-md border border-white/20 hover:border-white/40 text-white font-semibold py-4 px-8 rounded-2xl transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-violet-500/25"
+                        >
                             <span className="flex items-center gap-3">
                                 {t('viewProjects')}
                                 <span className="text-violet-400 group-hover:translate-x-1 transition-transform duration-200">→</span>

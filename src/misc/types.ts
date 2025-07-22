@@ -37,3 +37,12 @@ export interface ToolsAndTechnologies {
     tool: TechnologyInfo[];
     type: ProgrammingContext;
 }
+
+export interface Project {
+    projectTitle: string;
+    projectDescription: string;
+    usedTechnologies: TechnologyInfo[];
+    image?: string;
+    video?: string;
+    githubRepo: string;
+}
