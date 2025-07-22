@@ -2,27 +2,21 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Redirecting...</title>
+    <title>Portfolio</title>
     <script type="text/javascript">
-        const path = window.location.pathname;
-
-        const repoName = 'Portfolio';
-        const basename = `/${repoName}`;
-
-        let originalPath = path;
-        if (path.startsWith(basename)) {
-            originalPath = path.substring(basename.length);
-        }
-
-        const newUrl = `${basename}/?p=${encodeURIComponent(originalPath)}`;
-
-        window.history.replaceState(null, null, newUrl);
-
-        window.location.replace(basename);
+        // Single Page Apps for GitHub Pages
+        // https://github.com/rafgraph/spa-github-pages
+        var pathSegmentsToKeep = 1;
+        var l = window.location;
+        l.replace(
+            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+            l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+            l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+            l.hash
+        );
     </script>
-    <meta name="homepage-url" content="https://stivengjinaj.github.io/Portfolio/">
 </head>
 <body>
-<p>If you are not redirected automatically, follow this <a href="/">link</a>.</p>
 </body>
 </html>
