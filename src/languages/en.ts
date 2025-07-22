@@ -3,6 +3,7 @@ const en = {
     welcome1: "I am Stiven.",
     welcome2: "Get to know",
     welcome3: "Get to know me.",
+    category: "Category",
     beginButton: "Let's begin",
     skipButton: "Skip",
     homeTab: "Home",

@@ -3,6 +3,7 @@ const es = {
     welcome1: "Soy Stiven.",
     welcome2: "Conoce",
     welcome3: "Conóceme.",
+    category: "Categoria",
     beginButton: "Empecemos",
     skipButton: "Saltar",
     homeTab: "Inicio",

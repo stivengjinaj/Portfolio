@@ -1,6 +1,5 @@
 import {useRef, useState} from "react";
 import { Section } from "../misc/types.ts";
-import {gsap} from "gsap";
 import {sectionToId} from "../misc/helper.ts";
 
 function FloatingNavbar({currentSection, setCurrentSection}: {

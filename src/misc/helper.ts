@@ -71,6 +71,8 @@ export const contextToString = (programmingContext: ProgrammingContext) => {
         return "databases"
     }else if (programmingContext === ProgrammingContext.DEPLOYMENT){
         return "deploy"
+    }else {
+        return "category"
     }
 }
 

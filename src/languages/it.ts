@@ -3,6 +3,7 @@ const it = {
     welcome1: "Sono Stiven.",
     welcome2: "Conoscimi",
     welcome3: "Conoscimi meglio.",
+    category: "Categoria",
     beginButton: "Iniziamo",
     skipButton: "Salta",
     homeTab: "Home",
