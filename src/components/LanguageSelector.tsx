@@ -35,7 +35,7 @@ const LanguageSelector: React.FC = () => {
     }, []);
 
     const handleSelectLanguage = (code: string) => {
-        setLanguage(code as never, true);
+        setLanguage(code as never);
         setIsOpen(false);
     };
 
@@ -69,7 +69,6 @@ const LanguageSelector: React.FC = () => {
                         <div className="py-1" role="none">
                             {languages.map((lang) => (
                                 <button
-                                    key={lang.code}
                                     onClick={() => handleSelectLanguage(lang.code)}
                                     className={`${
                                         lang.code === language
