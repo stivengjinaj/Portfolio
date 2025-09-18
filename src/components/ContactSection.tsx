@@ -34,11 +34,11 @@ const ContactSection: React.FC = () => {
     return (
         <section id="contact" ref={sectionRef} className="min-h-screen w-full flex items-center justify-center px-6 py-20">
             <div className="max-w-4xl w-full">
-                <div className="text-center mb-16">
+                <div className="text-center mb-16 w-full">
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                         {t('getIn')} <span className="text-violet-400">{t('touch')}</span>
                     </h2>
-                    <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed whitespace-nowrap">
                         {t('contactMe')}
                     </p>
                 </div>
