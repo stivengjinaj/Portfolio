@@ -224,10 +224,10 @@ export const technologies: ToolsAndTechnologies[] = [
 export const projectsData: Project[] = [
     {
         projectTitle: "Stiflix",
-        projectDescription_en: "Stiflix is the free clone of Netflix. It offers the possibility to watch movies for free with similar to Netflix's UI.",
-        projectDescription_sq: "Stiflix është kloni falas i Netflix. Ofron mundësinë për të parë filma falas me një ndërfaqe të ngjashme me atë të Netflix.",
-        projectDescription_it: "Stiflix è il clone gratuito di Netflix. Offre la possibilità di guardare film gratuitamente con un'interfaccia utente simile a quella di Netflix.",
-        projectDescription_es: "Stiflix es el clon gratuito de Netflix. Ofrece la posibilidad de ver películas gratis con una interfaz de usuario similar a la de Netflix.",
+        projectDescription_en: "Stiflix is a streaming website that offers the possibility to watch movies for free and have an account to save watched movies.",
+        projectDescription_sq: "Stiflix është një website streaming që ofron mundësinë për të shikuar filma falas dhe për të pasur një llogari për të ruajtur filmat e shikuar.",
+        projectDescription_it: "Stiflix è un sito web streaming che offre la possibilità di guardare film gratuitamente ed avere un account personale dove salvare i film guardati.",
+        projectDescription_es: "Stiflix es un sito web que ofrece la posibilidad de ver películas gratis y hacer un account para guardar las películas vistas.",
         usedTechnologies: [
             { name: "Render", icon: 'https://cdn.sanity.io/images/34ent8ly/production/ec37a3660704e1fa2b4246c9a01ab34e145194ad-824x824.png'},
             { name: "Vercel", icon: 'https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/vercel.png' },
