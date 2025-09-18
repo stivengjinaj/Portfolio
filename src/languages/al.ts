@@ -20,6 +20,7 @@ const al = {
     masterTitle: "Diplomë Master",
     bachelorDegreeTitle: "Shkenca Kompjuterike dhe Inxhinieri",
     masterDegreeDescription: "Shkenca Kompjuterike dhe Inxhinieri - AI dhe Analiza e të Dhënave",
+    technicalExpertise: "Ekspertiza Teknike",
     programmingLanguagesTitle: "Gjuhë Programimi",
     frameworksTitle: "Framework",
     toolsTitle: "Mjete dhe Teknologji",

@@ -19,6 +19,7 @@ const es = {
     masterTitle: "Máster",
     bachelorDegreeTitle: "Ingeniería Informática",
     masterDegreeDescription: "Ingeniería Informática - IA y Análisis de Datos",
+    technicalExpertise: "Experiencia Técnica",
     programmingLanguagesTitle: "Lenguajes de Programación",
     frameworksTitle: "Frameworks",
     toolsTitle: "Herramientas y Tecnologías",
