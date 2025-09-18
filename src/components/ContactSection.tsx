@@ -19,8 +19,7 @@ const ContactSection: React.FC = () => {
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: sectionRef.current,
-                    start: "top 70%",
-                    end: "top 50%",
+                    start: "top 90%",
                     toggleActions: "play none none reverse",
                 }
             });
@@ -38,7 +37,7 @@ const ContactSection: React.FC = () => {
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                         {t('getIn')} <span className="text-violet-400">{t('touch')}</span>
                     </h2>
-                    <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed whitespace-nowrap">
+                    <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed whitespace-normal lg:whitespace-nowrap">
                         {t('contactMe')}
                     </p>
                 </div>

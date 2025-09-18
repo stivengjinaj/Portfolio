@@ -21,8 +21,7 @@ const ProjectsSection: React.FC = () => {
             ease: "power2.out",
             scrollTrigger: {
                 trigger: sectionRef.current,
-                start: "top 120%",
-                end: "top 80%",
+                start: "top 98%",
                 toggleActions: "play none none reverse"
             }
         })
@@ -39,15 +38,14 @@ const ProjectsSection: React.FC = () => {
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: titleRef.current,
-                    start: "top 120%",
-                    end: "top 80%",
+                    start: "top 98%",
                     toggleActions: "play none none reverse"
                 }
             }
         );
 
         const projectCards = sectionRef.current?.querySelectorAll('.project-card');
-        projectCards?.forEach((card, index) => {
+        projectCards?.forEach((card) => {
             gsap.fromTo(card,
                 {
                     y: 80,
@@ -60,11 +58,9 @@ const ProjectsSection: React.FC = () => {
                     scale: 1,
                     duration: 1,
                     ease: "power2.out",
-                    delay: index * 0.2,
                     scrollTrigger: {
                         trigger: card,
-                        start: "top 110%",
-                        end: "top 40%",
+                        start: "top 98%",
                         toggleActions: "play none none reverse"
                     }
                 }

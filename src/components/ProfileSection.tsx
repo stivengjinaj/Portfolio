@@ -52,7 +52,7 @@ const ProfileSection: React.FC = () => {
     }, []);
 
     return (
-        <div className="h-screen flex flex-col" id={"me"}>
+        <div className="min-h-screen lg:h-screen flex flex-col" id={"me"}>
             <section
                 ref={profileRef}
                 className="flex-1 flex items-center justify-center px-4 py-20"
@@ -105,7 +105,7 @@ const ProfileSection: React.FC = () => {
                     </div>
                 </div>
             </section>
-            {screenWidth > 1025 &&
+            {screenWidth >= 1024 &&
                 <div className="h-[10vh] flex justify-center items-start mouse-container">
                     <div className="w-6 h-10 border-2 border-white/70 rounded-full flex flex-col items-center justify-start p-1 animate-bounce">
                         <div className="w-1 h-1 bg-white/70 rounded-full mt-1"/>

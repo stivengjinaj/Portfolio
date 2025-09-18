@@ -3,10 +3,10 @@ import {useState, useEffect} from "react";
 import {Section} from "../misc/types.ts";
 import LanguageSelector from "../components/LanguageSelector.tsx";
 import ProfileSection from "../components/ProfileSection.tsx";
-import TimelineContainer from "../components/TimelineContainer.tsx";
 import ProjectSection from "../components/ProjectSection.tsx";
 import {sectionToId} from "../misc/helper.ts";
 import ContactSection from "../components/ContactSection.tsx";
+import TimelineArcher from "../components/TimelineArcher.tsx";
 
 function Homepage() {
     const [currentSection, setCurrentSection] = useState<Section>(Section.ME);
@@ -55,7 +55,8 @@ function Homepage() {
             <FloatingNavbar currentSection={currentSection} setCurrentSection={handleSectionChange} />
             <div className="darker-gradient-background relative min-h-screen w-full overflow-hidden bg-gray-900 flex flex-col items-center justify-center m-0 p-0">
                 <ProfileSection />
-                <TimelineContainer />
+                {/*<TimelineContainer/>*/}
+                {<TimelineArcher/>}
                 <ProjectSection />
                 <ContactSection />
             </div>
