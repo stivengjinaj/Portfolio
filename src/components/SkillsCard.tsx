@@ -25,8 +25,8 @@ const SkillsCard = ({title, data}: {title: string, data: ToolsAndTechnologies[]}
                                 key={index}
                                 className={`bg-gradient-to-br ${colors.bg} rounded-xl p-4 border ${colors.border} hover:scale-105 transition-transform duration-200`}
                             >
-                                <div className="flex items-center mb-3">
-                                    <h5 className={`font-semibold ${colors.text}`}>{t(contextToString(element.type))}</h5>
+                                <div className="flex items-center text-left mb-3">
+                                    <h5 className={`${colors.text} `}>{t(contextToString(element.type))}</h5>
                                 </div>
                                 <div className="flex flex-wrap gap-2">
                                     {element.tool.map((tool, index) => (
