@@ -40,6 +40,10 @@ const en = {
     phone: "Phone",
     email: "Email",
     linkedin: "LinkedIn",
+    copiedToClipboard: "Copied to clipboard!",
+    copyright: "© 2025 Stiven. All rights reserved.",
+    chooseOption: "Choose an option below",
+    clickToCopy: "Click to copy",
 } as const;
 
 export default en;

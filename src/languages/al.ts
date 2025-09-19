@@ -41,6 +41,10 @@ const al = {
     phone: "Telefoni",
     email: "Email",
     linkedin: "LinkedIn",
+    copiedToClipboard: "Kopjuar në clipboard!",
+    copyright: "© 2025 Stiven. Të gjitha të drejtat e rezervuara.",
+    chooseOption: "Zgjidh një opsion më poshtë",
+    clickToCopy: "Kliko për të kopjuar",
 } as const;
 
 export default al;

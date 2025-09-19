@@ -40,6 +40,10 @@ const it = {
     phone: "Telefono",
     email: "Email",
     linkedin: "LinkedIn",
+    copiedToClipboard: "Copiato negli appunti!",
+    copyright: "© 2025 Stiven. Tutti i diritti riservati.",
+    chooseOption: "Scegli un'opzione qui sotto",
+    clickToCopy: "Clicca per copiare",
 } as const;
 
 export default it;
