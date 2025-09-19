@@ -91,7 +91,7 @@ const TimelineArcher = () => {
                     ease: "elastic.out(1, 0.6)",
                     scrollTrigger: {
                         trigger: card,
-                        start: "top 98%",
+                        start: "top 99%",
                         toggleActions: "play none none reverse",
                         onEnter: () => archer.refreshScreen(),
                         onUpdate: () => archer.refreshScreen(),
@@ -115,7 +115,7 @@ const TimelineArcher = () => {
                     ease: "back.out(2.5)",
                     scrollTrigger: {
                         trigger: node,
-                        start: "top 98%",
+                        start: "top 99%",
                         toggleActions: "play none none reverse",
                         onEnter: () => archer.refreshScreen(),
                         onUpdate: () => archer.refreshScreen(),
@@ -271,7 +271,7 @@ const TimelineArcher = () => {
                         </ArcherElement>
 
                         <ArcherElement id="framework-skills">
-                            <div className="skill-card relative group md:mt-12">
+                            <div className="skill-card relative group md:mt-4">
                                 <div className="connection-node absolute -top-3 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full border-3 border-white/30 shadow-lg shadow-emerald-500/40"></div>
                                 <div className="relative">
                                     <SkillsCard title={t("frameworksTitle")} data={frameworks} />
