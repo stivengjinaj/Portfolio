@@ -1,3 +1,5 @@
+import React from "react";
+
 export enum Section {
     ME,
     JOURNEY,
@@ -48,4 +50,14 @@ export interface Project {
     image?: string;
     video?: string;
     githubRepo: string;
+}
+
+export interface Contact {
+    label_en: string;
+    label_sq: string;
+    label_it: string;
+    label_es: string;
+    type: 'email' | 'phone' | 'linkedin' | 'other';
+    icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    value: string[];
 }
