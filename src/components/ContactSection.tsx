@@ -1,14 +1,18 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {contacts} from "../misc/personalData.ts";
 import {useTranslation} from "../TranslationContext.tsx";
+import ContactToast from "./ContactToast.tsx";
+import ContactCard from "./ContactCard.tsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ContactSection: React.FC = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
-    const {language, t} = useTranslation();
+    const { language, t } = useTranslation();
+    const [toastVisible, setToastVisible] = useState(false);
+    const [toastMessage, setToastMessage] = useState('');
 
     useEffect(() => {
         if (sectionRef.current) {
@@ -30,61 +34,68 @@ const ContactSection: React.FC = () => {
         };
     }, []);
 
+    const copyToClipboard = async (text: string) => {
+        try {
+            await navigator.clipboard.writeText(text);
+
+            setToastMessage(t('copiedToClipboard'));
+            setToastVisible(true);
+
+            setTimeout(() => {
+                setToastVisible(false);
+            }, 3000);
+
+        } catch (err) {
+            console.error('Failed to copy: ', err);
+
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                setToastMessage(t('copiedToClipboard'));
+                setToastVisible(true);
+                setTimeout(() => setToastVisible(false), 3000);
+            } catch (fallbackErr) {
+                console.error('Fallback copy failed: ', fallbackErr);
+                alert('Unable to copy to clipboard');
+            }
+            document.body.removeChild(textArea);
+        }
+    };
+
     return (
-        <section id="contact" ref={sectionRef} className="min-h-screen w-full flex items-center justify-center px-6 py-20">
-            <div className="max-w-4xl w-full">
-                <div className="text-center mb-16 w-full">
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                        {t('getIn')} <span className="text-violet-400">{t('touch')}</span>
-                    </h2>
-                    <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed whitespace-normal lg:whitespace-nowrap">
-                        {t('contactMe')}
-                    </p>
-                </div>
+        <>
+            <ContactToast message={toastMessage} isVisible={toastVisible} />
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                    {contacts.map((contact, index) => {
-                        const IconComponent = contact.icon;
-                        return (
-                            <div
+            <section id="contact" ref={sectionRef} className="min-h-screen w-full flex items-center justify-center px-6 py-20">
+                <div className="max-w-4xl w-full">
+                    <div className="text-center mb-16 w-full">
+                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                            {t('getIn')} <span className="text-violet-400">{t('touch')}</span>
+                        </h2>
+                        <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed whitespace-normal lg:whitespace-nowrap">
+                            {t('contactMe')}
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                        {contacts.map((contact, index) => (
+                            <ContactCard
                                 key={index}
-                                className="group relative"
-                            >
-                                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-violet-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-                                <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 hover:shadow-2xl hover:shadow-violet-500/20 transition-all duration-300 hover:transform hover:scale-[1.02] text-center">
-
-                                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-violet-500 to-blue-500 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
-                                        <IconComponent className="w-8 h-8 text-white" />
-                                    </div>
-
-                                    <h3 className="text-xl font-semibold text-white mb-3">
-                                        {language === "en"
-                                            ? contact.label_en
-                                            : language === "al"
-                                                ? contact.label_sq
-                                                : language === "it"
-                                                    ? contact.label_it
-                                                    : contact.label_es
-                                        }
-                                    </h3>
-
-                                    <p className="text-white/80 mb-6 break-all">
-                                        {
-                                            contact.value.length > 1
-                                                ? contact.value.map(contact => (
-                                                    <span>{contact} <br/></span>
-                                                ))
-                                                : contact.value
-                                        }
-                                    </p>
-                                </div>
-                            </div>
-                        );
-                    })}
+                                contact={contact}
+                                index={index}
+                                language={language}
+                                onCopy={copyToClipboard}
+                                t={(key: string) => t(key as keyof typeof t)}
+                            />
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 };
 
